@@ -87,6 +87,25 @@ async function fetchHistory(ticker, days) {
 // Routes
 // ---------------------------------------------------------------------------
 
+/** GET /api/history/custom?ticker=AAPL&days=30 — history for any single ticker (Issue #1) */
+app.get('/api/history/custom', async (req, res) => {
+  const ticker = (req.query.ticker ?? '').trim().toUpperCase();
+  const days   = Math.min(parseInt(req.query.days ?? '30', 10) || 30, 365);
+
+  // Validate: 1-10 alphanumeric characters
+  if (!/^[A-Z0-9.]{1,10}$/.test(ticker)) {
+    return res.status(400).json({ ok: false, error: 'Invalid ticker symbol.' });
+  }
+
+  try {
+    const series = await fetchHistory(ticker, days);
+    res.json({ ok: true, data: { ticker, series } });
+  } catch (err) {
+    console.error(`[proxy] /api/history/custom error for ${ticker}:`, err.message);
+    res.status(500).json({ ok: false, error: 'Unable to fetch custom history.' });
+  }
+});
+
 app.get('/api/quotes', async (_req, res) => {
   try {
     const results = await Promise.all(ALLOWED_TICKERS.map(fetchQuote));

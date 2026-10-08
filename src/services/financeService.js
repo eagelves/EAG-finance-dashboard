@@ -157,6 +157,29 @@ export async function fetchQuarterlyHistory() {
 }
 
 /**
+ * Fetches price history for a single user-provided ticker (Issue #1).
+ * Uses the proxy's quarterly endpoint filtered to `days` data points,
+ * falling back to mock data generated on-the-fly if the proxy is down.
+ *
+ * @param {string} ticker  - Any valid stock symbol (e.g. "AAPL")
+ * @param {number} days    - Number of calendar days to look back (default 30)
+ * @returns {Promise<Array<{date: string, price: number}>>}
+ */
+export async function fetchCompanyChart(ticker, days = 30) {
+  const symbol = ticker.trim().toUpperCase();
+  try {
+    const res = await fetch(`/api/history/custom?ticker=${encodeURIComponent(symbol)}&days=${days}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const json = await res.json();
+    if (!json.ok) throw new Error(json.error ?? 'API error');
+    return json.data?.series ?? [];
+  } catch {
+    console.warn(`[financeService] custom chart proxy unavailable for ${symbol} — using mock`);
+    return generatePriceSeries(symbol, days);
+  }
+}
+
+/**
  * Normalises a multi-company series so all lines start at index 100.
  * Useful for percentage-based comparison charts.
  *
