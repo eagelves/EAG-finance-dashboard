@@ -1,0 +1,68 @@
+/* SummaryCard component styles */
+.summary-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 1.1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  border-left: 4px solid #e5e7eb;
+  min-width: 0;
+}
+
+.summary-card--up   { border-left-color: #1a7f37; }
+.summary-card--down { border-left-color: #cf222e; }
+
+.summary-card--skeleton {
+  height: 130px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.summary-card__ticker {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #57606a;
+  text-transform: uppercase;
+}
+
+.summary-card__name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1f2328;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.summary-card__price {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1f2328;
+  margin-top: 0.2rem;
+}
+
+.summary-card__badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+}
+
+.summary-card--up   .summary-card__badge { background: #d1f7dd; color: #1a7f37; }
+.summary-card--down .summary-card__badge { background: #ffd8d8; color: #cf222e; }
+
+.summary-card__volume {
+  font-size: 0.75rem;
+  color: #57606a;
+  margin-top: 0.1rem;
+}

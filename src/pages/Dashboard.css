@@ -1,0 +1,94 @@
+/* Dashboard page styles */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Tab bar */
+.dashboard__tabs {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0;
+}
+
+.dashboard__tab {
+  padding: 0.55rem 1.1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #57606a;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+  margin-bottom: -1px;
+}
+
+.dashboard__tab:hover {
+  color: #1f2328;
+}
+
+.dashboard__tab--active {
+  color: #0f62fe;
+  border-bottom-color: #0f62fe;
+  font-weight: 600;
+}
+
+.dashboard__refresh {
+  margin-left: auto;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.8rem;
+  color: #57606a;
+  background: #f7f8fa;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.dashboard__refresh:hover { background: #eaedf0; }
+
+/* Section heading */
+.dashboard__section-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #57606a;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.75rem;
+}
+
+/* Summary card grid */
+.dashboard__cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 1rem;
+}
+
+/* Error message */
+.dashboard__error {
+  color: #cf222e;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+/* Ranking card wrapper — adds breathing room below the summary cards */
+.dashboard__ranking {
+  margin-top: 1.25rem;
+}
+
+/* Side-by-side charts on wider screens */
+.dashboard__charts-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 900px) {
+  .dashboard__charts-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}

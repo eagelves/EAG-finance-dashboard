@@ -1,0 +1,90 @@
+/* RankingCard component styles */
+.ranking-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.ranking-card--skeleton {
+  height: 260px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.ranking-card__header {
+  padding: 1rem 1.25rem 0.75rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.ranking-card__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2328;
+}
+
+.ranking-card__subtitle {
+  font-size: 0.8rem;
+  color: #57606a;
+  margin-top: 0.2rem;
+}
+
+.ranking-card__list {
+  list-style: none;
+  padding: 0.5rem 0;
+}
+
+.ranking-card__row {
+  display: grid;
+  grid-template-columns: 1.5rem 3.5rem 1fr 4.5rem 5rem;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.25rem;
+  border-bottom: 1px solid #f7f8fa;
+  font-size: 0.875rem;
+  transition: background 0.1s;
+}
+
+.ranking-card__row:last-child { border-bottom: none; }
+.ranking-card__row:hover { background: #f7f8fa; }
+
+.ranking-card__rank {
+  color: #57606a;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.ranking-card__ticker {
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: #1f2328;
+}
+
+.ranking-card__name {
+  color: #57606a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ranking-card__pct {
+  font-weight: 700;
+  text-align: right;
+}
+
+.ranking-card__pct--up   { color: #1a7f37; }
+.ranking-card__pct--down { color: #cf222e; }
+
+.ranking-card__price {
+  text-align: right;
+  font-weight: 500;
+  color: #1f2328;
+}

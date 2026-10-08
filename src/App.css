@@ -1,0 +1,42 @@
+/* App shell layout */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-header {
+  background-color: #161616;
+  color: #ffffff;
+  padding: 1.25rem 2rem;
+  border-bottom: 3px solid #0f62fe;
+}
+
+.app-header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.app-subtitle {
+  font-size: 0.875rem;
+  color: #a8b0ba;
+  margin-top: 0.25rem;
+}
+
+.app-main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.app-footer {
+  background-color: #f7f8fa;
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+  padding: 0.75rem 2rem;
+  font-size: 0.8rem;
+  color: #57606a;
+}
