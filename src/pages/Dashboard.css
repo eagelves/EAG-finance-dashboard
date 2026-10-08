@@ -92,3 +92,10 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/* Visual separator before the custom company section */
+.dashboard__divider {
+  border: none;
+  border-top: 2px dashed #e5e7eb;
+  margin: 0.5rem 0;
+}

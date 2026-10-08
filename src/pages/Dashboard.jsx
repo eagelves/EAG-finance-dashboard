@@ -3,6 +3,7 @@ import SummaryCard from '../components/SummaryCard.jsx';
 import ChartCard from '../components/ChartCard.jsx';
 import AreaChartCard from '../components/AreaChartCard.jsx';
 import RankingCard from '../components/RankingCard.jsx';
+import CompanySearch from '../components/CompanySearch.jsx';
 import {
   COMPANIES,
   COMPANY_COLORS,
@@ -207,6 +208,14 @@ function Dashboard() {
           </div>
         </section>
       )}
+
+      {/* ══════════════════════════════════════════════════
+          Custom Company Chart — Issue #1
+          Visible on all tabs, additive — does not replace
+          the existing IBM / competitor dashboards.
+         ══════════════════════════════════════════════════ */}
+      <div className="dashboard__divider" aria-hidden="true" />
+      <CompanySearch />
 
     </div>
   );
